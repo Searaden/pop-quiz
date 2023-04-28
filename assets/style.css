@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.main{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}

@@ -8,14 +8,23 @@
     <link rel="stylesheet" href="assets\style.css" />
   </head>
   <body>
-     <div class="header">
-      <header>
-        <h1>Pop-Quiz!</h1>
-      </header>
-          <button id="generate" class="btn">Generate Password</button>
+    <header>
+        <div class="header">
+            <button id="high-score" class="btn">View High Scores</button>
+            <p class="time"></p>
         </div>
-      </div>
+    </header>
+          
     </div>
+    <main class="main">
+        <section class="quiz">
+          <h2 class="questionNumber"></h2>
+          <h3 class="question"></h3>
+          <ul class="answers">
+          </ul>
+          <button id="nextQuestion" class="btn">Next Question</button>
+        </section>
+      </main>
     <script src="assets\script.js"></script>
   </body>
 </html>
