@@ -15,17 +15,28 @@ var timerInterval;
 var quiz = [
   {
     questionNumber: "Question 1",
-    question: "What is the capital of France?",
-    answers: ["Paris", "London", "Berlin", "Rome"],
-    correctAnswerIndex: 0
+    question: "How do you write a single-line comment in JavaScript?",
+    answers: ["/* Comment */", "<!-- Comment -->", "// Comment", "# Comment"],
+    correctAnswerIndex: 2
   },
   {
     questionNumber: "Question 2",
-    question: "Who is the author of 'To Kill a Mockingbird'?",
-    answers: ["Harper Lee", "J.K. Rowling", "F. Scott Fitzgerald", "George Orwell"],
-    correctAnswerIndex: 0
+    question: "How do you access the last element of an array in JavaScript?",
+    answers: ["array.last()", "array.pop()", "array[array.length - 1]", "array.lastElement()"],
+    correctAnswerIndex: 2
   },
-  // Add more questions...
+  {
+    questionNumber: "Question 3",
+    question: "What does the parseInt() function do in JavaScript?",
+    answers: ["Returns the decimal representation of a binary number", "Converts a string to an integer", "Rounds a number to the nearest integer", " Returns the fractional part of a number"],
+    correctAnswerIndex: 1
+  },
+  {
+    questionNumber: "Question 4",
+    question: "What does the Math.random() function return in JavaScript?",
+    answers: [" A random integer between 0 and 1", "A random float between 0 and 1", " A random positive integer", " A random number with a large number of decimal places"],
+    correctAnswerIndex: 1
+  },
 ];
 
 function startTimer() {
@@ -39,7 +50,7 @@ function startTimer() {
     }
   }, 1000);
 }
-
+//Start quiz button
 function startQuiz() {
   startButton.style.display = "none";
   nextQuestionButton.style.display = "block";
@@ -52,7 +63,7 @@ function startQuiz() {
   var highScoreButton = document.getElementById("high-score");
   highScoreButton.addEventListener("click", showHighScores);
 }
-
+//populates questions
 function showQuestion() {
   var quizQuestion = quiz[currentQuestion];
 
@@ -73,7 +84,7 @@ function showQuestion() {
     answerEl.appendChild(li);
   }
 }
-
+//gives either correct or incorrect grade and then changes time and score
 function checkAnswer(selectedAnswerButton, correctAnswerIndex) {
   if (correctAnswerIndex === Array.from(answerEl.children).indexOf(selectedAnswerButton.parentElement)) {
     alert("Correct!");
@@ -91,7 +102,7 @@ function checkAnswer(selectedAnswerButton, correctAnswerIndex) {
     endQuiz();
   }
 }
-
+//end quiz and prompt user for name and to retry
 function endQuiz() {
   clearInterval(timerInterval);
   timeEl.textContent = "Quiz Over!";
@@ -121,6 +132,10 @@ function resetQuiz() {
   startButton.style.display = "block";
   nextQuestionButton.style.display = "none";
   tryAgainButton.style.display = "none";
+
+  //hide hi scores if open
+  var highScoreList = document.getElementById("high-score-list");
+  highScoreList.innerHTML = "";
 }
 
 function showHighScores() {
